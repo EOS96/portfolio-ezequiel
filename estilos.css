@@ -1,0 +1,616 @@
+:root {
+    /* Cores do modo claro */
+    --bg-body: #f5f7fa;
+    --bg-card: #ffffff;
+    --bg-light: #f8f9fa;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a5568;
+    --text-muted: #6c757d;
+    --text-description: #4a5568;
+    --text-bold: #0a0a1a;
+    --border-color: #e2e8f0;
+    --border-start: #0d6efd;
+    --border-card: #0d6efd;
+    --progress-bg: #e9ecef;
+    --badge-bg: #0d6efd;
+    --badge-text: #ffffff;
+    --alert-bg: #cfe2ff;
+    --alert-text: #084298;
+    --alert-border: #b6d4fe;
+    --alert-success-bg: #d1e7dd;
+    --alert-success-text: #0a3622;
+    --alert-success-border: #badbcc;
+    --list-bg: #ffffff;
+    --list-hover: #f8f9fa;
+    --navbar-bg: #0d6efd;
+    --footer-bg: #0d6efd;
+}
+
+/* Cores do modo escuro */
+body.dark-mode {
+    --bg-body: #0a0a0f;
+    --bg-card: #1a1a2e;
+    --bg-light: #0f0f1a;
+    --text-primary: #f0f3fa;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-description: #cbd5e1;
+    --text-bold: #ffffff;
+    --border-color: #2d3748;
+    --border-start: #60a5fa;
+    --border-card: #3b82f6;
+    --progress-bg: #2d3748;
+    --badge-bg: #3b82f6;
+    --badge-text: #ffffff;
+    --alert-bg: #1a2a4a;
+    --alert-text: #93c5fd;
+    --alert-border: #2c3e5c;
+    --alert-success-bg: #1a2a1f;
+    --alert-success-text: #86efac;
+    --alert-success-border: #2d4a2d;
+    --list-bg: #1a1a2e;
+    --list-hover: #1f2a44;
+    --navbar-bg: #0d0d1a;
+    --footer-bg: #0d0d1a;
+}
+
+/* Estilo base do body */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animações suaves */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== Tipografia ===== */
+strong, b, .fw-bold, .bold-text {
+    color: var(--text-bold);
+    font-weight: 700;
+}
+
+/* Modo escuro - negritos */
+body.dark-mode strong,
+body.dark-mode b,
+body.dark-mode .fw-bold,
+body.dark-mode .bold-text,
+body.dark-mode [class*="fw-bold"],
+body.dark-mode label strong,
+body.dark-mode .list-group-item strong,
+body.dark-mode .card-body strong,
+body.dark-mode .card-title,
+body.dark-mode .lead {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* Textos descritivos modo escuro */
+body.dark-mode .text-muted,
+body.dark-mode small:not(.badge):not(.text-primary),
+body.dark-mode .small:not(.badge),
+body.dark-mode .description-text,
+body.dark-mode p:not(.lead):not(.text-primary),
+body.dark-mode .bg-light p,
+body.dark-mode .list-group-item span:not(.badge),
+body.dark-mode .curso-item .small,
+body.dark-mode .curso-item p.small,
+body.dark-mode .border-start p:not(.text-primary),
+body.dark-mode .info-text,
+body.dark-mode .experience-item p:not(.text-muted):not(.text-primary),
+body.dark-mode .project-item p,
+body.dark-mode .card-body p:not(.text-muted):not(.text-primary):not(.alert) {
+    color: #cbd5e1 !important;
+}
+
+/* Texto lead modo escuro */
+body.dark-mode .lead {
+    color: #e2e8f0 !important;
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-card);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-card) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4) !important;
+}
+
+body.dark-mode .card-body {
+    background-color: var(--bg-card) !important;
+}
+
+/* Formulário */
+.form-control, .form-select {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--border-card);
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-label {
+    color: var(--text-primary);
+}
+
+body.dark-mode .form-label {
+    color: var(--text-primary);
+}
+
+/* Checkbox personalizado */
+.form-check-input {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--border-card);
+    border-color: var(--border-card);
+}
+
+body.dark-mode .form-check-label {
+    color: var(--text-primary);
+}
+
+/* ===== NavBar ===== */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .navbar {
+    background-color: var(--navbar-bg) !important;
+}
+
+body.dark-mode .navbar-nav .nav-link {
+    color: #e2e8f0;
+}
+
+body.dark-mode .navbar-nav .nav-link:hover,
+body.dark-mode .navbar-nav .nav-link.active {
+    color: #93c5fd;
+}
+
+/* Responsividade da NavBar */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #6175e0;
+        border-radius: 12px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    body.dark-mode .navbar-collapse {
+        background-color: #0f3460;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+}
+
+body.dark-mode footer {
+    background-color: var(--footer-bg) !important;
+}
+
+/* Header */
+body.dark-mode hr.border-primary {
+    border-color: var(--border-card) !important;
+}
+
+/* Aumentar distância entre botão de tema e botão hambúrguer no mobile */
+@media (max-width: 992px) {
+    #darkModeToggle {
+        margin-right: 5px !important;  /* Aumenta a distância */
+    }
+    
+    /* Ou use gap se estiver usando flexbox */
+    .navbar .container {
+        gap: 10px;
+    }
+}
+
+
+
+/* Botões */
+.btn-outline-primary {
+    transition: all 0.3s ease;
+}
+
+/* Tamanho dos ícones de software */
+.software-icon {
+    font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.software-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.software-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animação específica para o ícone dentro do card */
+.software-card:hover .software-icon {
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+}
+
+/* Animação para o título dentro do card */
+.software-card:hover .card-title {
+    color: var(--border-card);
+    transition: color 0.3s ease;
+}
+
+/* Modo escuro - hover nos cards */
+body.dark-mode .software-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    background-color: #1f2a4a !important;
+    border-color: #60a5fa !important;
+}
+
+body.dark-mode .software-card:hover .software-icon {
+    color: #93c5fd !important;
+}
+
+body.dark-mode .software-card:hover .card-title {
+    color: #93c5fd !important;
+}
+
+/* Garantir que os textos das técnicas tenham bom contraste */
+body.dark-mode .d-flex.align-items-center span {
+    color: #e2e8f0 !important;  /* Texto mais claro para melhor contraste */
+    font-weight: 500;
+}
+
+body.dark-mode .btn-outline-primary {
+    color: #93c5fd;
+    border-color: #93c5fd;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #2563eb;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #cbd5e1;
+    border-color: #cbd5e1;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #2d3748;
+    color: white;
+}
+
+/* Badges */
+.badge {
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .badge.bg-primary {
+    background-color: var(--badge-bg) !important;
+    color: var(--badge-text) !important;
+}
+
+body.dark-mode .badge.bg-secondary {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Skill Tags */
+.skill-tag {
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .skill-tag {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .skill-tag:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* List Group */
+.list-group-item {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .list-group-item {
+    background-color: var(--list-bg) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+body.dark-mode .list-group-item:hover {
+    background-color: var(--list-hover) !important;
+}
+
+/* Alertas */
+.alert {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .alert-primary {
+    background-color: var(--alert-bg) !important;
+    color: var(--alert-text) !important;
+    border-color: var(--alert-border) !important;
+}
+
+body.dark-mode .alert-primary i {
+    color: var(--alert-text);
+}
+
+body.dark-mode .alert-primary strong {
+    color: #93c5fd !important;
+}
+
+body.dark-mode .alert-success {
+    background-color: var(--alert-success-bg) !important;
+    color: var(--alert-success-text) !important;
+    border-color: var(--alert-success-border) !important;
+}
+
+body.dark-mode .alert-success i {
+    color: #86efac;
+}
+
+body.dark-mode .alert-success strong {
+    color: #86efac !important;
+}
+
+/* Fundo Claro */
+body.dark-mode .bg-light {
+    background-color: var(--bg-light) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+body.dark-mode .bg-light strong {
+    color: #ffffff !important;
+}
+
+/* Barra de progresso */
+body.dark-mode .progress {
+    background-color: var(--progress-bg) !important;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #3b82f6 !important;
+}
+
+/* Bordas */
+body.dark-mode .border-start {
+    border-left-color: var(--border-start) !important;
+}
+
+body.dark-mode hr {
+    border-color: var(--border-color) !important;
+}
+
+/* Ícones */
+body.dark-mode i.bi {
+    color: inherit;
+}
+
+body.dark-mode .text-primary {
+    color: #93c5fd !important;
+}
+
+body.dark-mode .text-success {
+    color: #86efac !important;
+}
+
+body.dark-mode .text-warning {
+    color: #fcd34d !important;
+}
+
+body.dark-mode .text-danger {
+    color: #f87171 !important;
+}
+
+body.dark-mode .text-info {
+    color: #67e8f9 !important;
+}
+
+body.dark-mode .text-dark {
+    color: var(--text-primary) !important;
+}
+
+/* Containers de contato */
+body.dark-mode .bg-success.bg-opacity-10,
+body.dark-mode .bg-primary.bg-opacity-10,
+body.dark-mode .bg-danger.bg-opacity-10,
+body.dark-mode .bg-info.bg-opacity-10 {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+body.dark-mode .bg-success.bg-opacity-10 {
+    background-color: rgba(134, 239, 172, 0.1) !important;
+}
+
+body.dark-mode .bg-primary.bg-opacity-10 {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+body.dark-mode .bg-danger.bg-opacity-10 {
+    background-color: rgba(248, 113, 113, 0.1) !important;
+}
+
+body.dark-mode .bg-info.bg-opacity-10 {
+    background-color: rgba(103, 232, 249, 0.1) !important;
+}
+
+/* Links */
+body.dark-mode a:not(.btn) {
+    color: var(--text-primary);
+}
+
+body.dark-mode a:not(.btn):hover {
+    color: #93c5fd;
+}
+
+/* Botão voltar ao topo */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    z-index: 99;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #backToTop {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: white;
+}
+
+body.dark-mode #backToTop:hover {
+    background-color: #2563eb !important;
+}
+
+/* Botão modo escuro */
+#darkModeToggle {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: white;
+}
+
+/* Imagem de perfil */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3b82f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 4px;
+    background: linear-gradient(135deg, #6175e0, #4a5fd4);
+}
+
+.profile-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(97, 117, 224, 0.3);
+}
+
+body.dark-mode .profile-img {
+    border-color: #93c5fd !important;
+}
+
+/* Barra de rolagem personalizada */
+body.dark-mode::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+    background: #0a0a0f;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 5px;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: #60a5fa;
+}
+
+/* Responsividade global */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #backToTop {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-5 {
+        font-size: 1.8rem;
+    }
+}
